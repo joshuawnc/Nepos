@@ -8,11 +8,28 @@ import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 
+import android.util.Log;
+
+import org.opencv.android.OpenCVLoader;
+
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
 public class FullscreenActivity extends AppCompatActivity {
+
+    private static final String TAG = "MAin";
+
+    static {
+        if(!OpenCVLoader.initDebug())
+        {
+            Log.d(TAG, "not loaded");
+        }
+        else
+        {
+            Log.d(TAG, " loaded");
+        }
+    }
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
